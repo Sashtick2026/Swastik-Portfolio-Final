@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-bg-dark: #050505;
+  --color-bg-secondary: #0B0B0B;
+  --color-surface: #111111;
+  --color-accent-purple: #7B2EFF;
+  --color-accent-glow: #A855F7;
+  --color-text-light: #F5F5F5;
+  --color-text-muted: #9E9E9E;
+
+  --animate-pulse-slow: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-spin-slow: spin 20s linear infinite;
+
+  /* Fluid typography using CSS clamp */
+  --font-size-fluid-hero: clamp(2rem, 5.5vw + 0.8rem, 6.5rem);
+  --font-size-fluid-section: clamp(1.75rem, 4vw + 0.4rem, 4.625rem);
+  --font-size-fluid-subheading: clamp(1.35rem, 2.5vw + 0.3rem, 2.75rem);
+  --font-size-fluid-body: clamp(0.875rem, 0.8vw + 0.5rem, 1.25rem);
+  --font-size-fluid-desc: clamp(1rem, 1vw + 0.5rem, 1.5rem);
+  --font-size-fluid-label: clamp(0.7rem, 0.4vw + 0.4rem, 1.125rem);
+
+  /* Fluid spacing using CSS clamp */
+  --spacing-fluid-padding: clamp(1.5rem, 4vw + 0.5rem, 4.5rem);
+  --spacing-fluid-gap: clamp(1rem, 2vw + 0.5rem, 3.5rem);
+  --spacing-fluid-margin: clamp(1.75rem, 4vw + 0.8rem, 5.5rem);
+}
+
+@layer base {
+  body {
+    background-color: #050505;
+    color: #F5F5F5;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: rgba(123, 46, 255, 0.3);
+    color: #F5F5F5;
+  }
+
+  /* Custom high-end scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #050505;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1A1A1A;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #7B2EFF;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    background: rgba(17, 17, 17, 0.5);
+    backdrop-filter: blur(16px) saturate(120%);
+    -webkit-backdrop-filter: blur(16px) saturate(120%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .glass-card-hover {
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  .glass-card-hover:hover {
+    border-color: rgba(123, 46, 255, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 40px rgba(123, 46, 255, 0.05);
+    background: rgba(17, 17, 17, 0.65);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 30px rgba(168, 85, 247, 0.4);
+  }
+
+  .bg-radial-gradient {
+    background: radial-gradient(circle at center, var(--color-accent-purple) 0%, transparent 70%);
+  }
+  
+  .noise-bg {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+  }
+}
+

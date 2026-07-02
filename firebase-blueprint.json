@@ -1,0 +1,187 @@
+{
+  "entities": {
+    "Hero": {
+      "title": "Hero",
+      "description": "Hero section content",
+      "type": "object",
+      "properties": {
+        "eyebrow": { "type": "string" },
+        "headlineLine1": { "type": "string" },
+        "headlineLine1Accent": { "type": "string" },
+        "headlineLine2": { "type": "string" },
+        "headlineLine2Accent": { "type": "string" },
+        "description": { "type": "string" },
+        "btn1Text": { "type": "string" },
+        "btn2Text": { "type": "string" },
+        "videoUrl": { "type": "string" }
+      },
+      "required": ["eyebrow", "headlineLine1", "headlineLine1Accent", "headlineLine2", "headlineLine2Accent", "description", "btn1Text", "btn2Text", "videoUrl"]
+    },
+    "About": {
+      "title": "About",
+      "description": "About section bio and statistics",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "age": { "type": "string" },
+        "from": { "type": "string" },
+        "experience": { "type": "string" },
+        "availability": { "type": "string" },
+        "specialization": { "type": "string" },
+        "headline1": { "type": "string" },
+        "headline2": { "type": "string" },
+        "description": { "type": "string" },
+        "bgVideoUrl": { "type": "string" },
+        "holoVideoUrl": { "type": "string" }
+      },
+      "required": ["name", "age", "from", "experience", "availability", "specialization", "headline1", "headline2", "description", "bgVideoUrl", "holoVideoUrl"]
+    },
+    "Contact": {
+      "title": "Contact",
+      "description": "Contact section social and direct handles",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "description": "Direct contact email" },
+        "telegram": { "type": "string", "description": "Telegram handle" },
+        "whatsapp": { "type": "string", "description": "WhatsApp contact number" },
+        "location": { "type": "string", "description": "Current geography" }
+      },
+      "required": ["email", "telegram", "whatsapp", "location"]
+    },
+    "Settings": {
+      "title": "Settings",
+      "description": "Global layout settings and custom code integrations",
+      "type": "object",
+      "properties": {
+        "siteName": { "type": "string", "description": "HTML Title Tag prefix" },
+        "logoText": { "type": "string", "description": "Main header text logo" },
+        "logoUrl": { "type": "string", "description": "Launcher / launcher icon brand assets" },
+        "accentColor": { "type": "string", "description": "Hex theme coloring selection" },
+        "seoDescription": { "type": "string", "description": "Global SEO meta description" },
+        "customCode": { "type": "string", "description": "External JS/CSS injection code block" }
+      },
+      "required": ["siteName", "logoText", "logoUrl", "accentColor", "seoDescription", "customCode"]
+    },
+    "Project": {
+      "title": "Project",
+      "description": "Single portfolio creative project case card",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier" },
+        "category": { "type": "string", "description": "Industry / area selection" },
+        "title": { "type": "string", "description": "Visual display title" },
+        "logo": { "type": "string", "description": "Simple acronym / abbreviation logo" },
+        "headline": { "type": "string", "description": "Tagline or descriptive text" },
+        "color": { "type": "string", "description": "Hex gradient classes selection" },
+        "glowColor": { "type": "string", "description": "Custom shadow neon color overlay" },
+        "status": { "type": "string", "enum": ["published", "draft"] },
+        "isFeatured": { "type": "boolean", "description": "Highlights work on main page" }
+      },
+      "required": ["id", "category", "title", "logo", "headline", "color", "glowColor", "status", "isFeatured"]
+    },
+    "Review": {
+      "title": "Review",
+      "description": "Client feedback and testimonial quote card",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier" },
+        "name": { "type": "string", "description": "Client full name" },
+        "role": { "type": "string", "description": "Job description" },
+        "company": { "type": "string", "description": "Company name" },
+        "text": { "type": "string", "description": "Feedback body text" },
+        "rating": { "type": "number", "description": "Star rating out of 5" },
+        "avatar": { "type": "string", "description": "Avatar photo URL" },
+        "isFeatured": { "type": "boolean", "description": "Shows on homepage carousel" }
+      },
+      "required": ["id", "name", "role", "company", "text", "rating", "avatar", "isFeatured"]
+    },
+    "Navigation": {
+      "title": "Navigation",
+      "description": "Global header links configuration",
+      "type": "object",
+      "properties": {
+        "links": { "type": "array", "description": "Navigation items" }
+      },
+      "required": ["links"]
+    },
+    "SocialLinks": {
+      "title": "SocialLinks",
+      "description": "Global footer socials list configuration",
+      "type": "object",
+      "properties": {
+        "links": { "type": "array", "description": "Social media accounts connection" }
+      },
+      "required": ["links"]
+    },
+    "Message": {
+      "title": "Message",
+      "description": "Contact form direct inbox submissions",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Sender full name" },
+        "email": { "type": "string", "description": "Sender reply email" },
+        "message": { "type": "string", "description": "Body message feedback" },
+        "submittedAt": { "type": "string", "format": "date-time", "description": "Timestamp" },
+        "isRead": { "type": "boolean", "description": "Admin open state status indicator" },
+        "isStarred": { "type": "boolean", "description": "Admin starred / flagged priority" },
+        "isArchived": { "type": "boolean", "description": "Hides item from inbox queue" },
+        "replyStatus": { "type": "string", "enum": ["unreplied", "replied"] },
+        "deviceType": { "type": "string", "enum": ["desktop", "mobile"] }
+      },
+      "required": ["name", "email", "message", "submittedAt", "isRead", "isStarred", "isArchived", "replyStatus", "deviceType"]
+    },
+    "Admin": {
+      "title": "Admin",
+      "description": "Admin users registered in database",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "password": { "type": "string" },
+        "role": { "type": "string" }
+      },
+      "required": ["email", "password", "role"]
+    }
+  },
+  "firestore": {
+    "hero/{docId}": {
+      "schema": { "$ref": "#/entities/Hero" },
+      "description": "Draft and Published versions of hero content"
+    },
+    "about/{docId}": {
+      "schema": { "$ref": "#/entities/About" },
+      "description": "Draft and Published versions of bio data"
+    },
+    "contact/{docId}": {
+      "schema": { "$ref": "#/entities/Contact" },
+      "description": "Draft and Published versions of social profiles"
+    },
+    "settings/{docId}": {
+      "schema": { "$ref": "#/entities/Settings" },
+      "description": "Draft and Published versions of visual configurations"
+    },
+    "projects/{projectId}": {
+      "schema": { "$ref": "#/entities/Project" },
+      "description": "List of all web dev client works"
+    },
+    "testimonials/{reviewId}": {
+      "schema": { "$ref": "#/entities/Review" },
+      "description": "List of client recommendations"
+    },
+    "navigation/{docId}": {
+      "schema": { "$ref": "#/entities/Navigation" },
+      "description": "Draft and Published visual routes lists"
+    },
+    "socialLinks/{docId}": {
+      "schema": { "$ref": "#/entities/SocialLinks" },
+      "description": "Draft and Published footer connectivity configurations"
+    },
+    "messages/{messageId}": {
+      "schema": { "$ref": "#/entities/Message" },
+      "description": "User feedback contact direct submissions"
+    },
+    "admins/{adminId}": {
+      "schema": { "$ref": "#/entities/Admin" },
+      "description": "Admin credential registrations"
+    }
+  }
+}
